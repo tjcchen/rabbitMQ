@@ -37,7 +37,7 @@ brew services start rabbitmq
 # stop rabbitmq server as a service
 brew services stop rabbitmq
 
-# enable rabbitmq management plugin
+# enable rabbitmq management UI plugin
 rabbitmq-plugins enable rabbitmq_management
 
 # check rabbitmq status
@@ -67,4 +67,22 @@ brew services stop rabbitmq
 ps aux | grep rabbit
 ```
 
+
+5. Run with docker
+
+```bash
+# run rabbitmq with docker
+# -rm: Automatically removes the container when it stops (no leftover container).
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+
+# check rabbitmq status
+http://localhost:15672/#/
+
+# login with default username and password
+username: guest
+password: guest
+
+# stop rabbitmq server as a service
+docker stop rabbitmq
+```
 
