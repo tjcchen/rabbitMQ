@@ -73,6 +73,11 @@ ps aux | grep rabbit
 ```bash
 # run rabbitmq with docker
 # -rm: Automatically removes the container when it stops (no leftover container).
+# After this setup, we can access RabbitMQ at:
+# AMQP: amqp://localhost:5672
+# Management UI: http://localhost:15672
+# Username: guest
+# Password: guest
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
 
 # check rabbitmq status
