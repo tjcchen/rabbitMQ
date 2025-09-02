@@ -16,7 +16,7 @@ Debug host: http://localhost:15672
 
 ## Why use RabbitMQ?
 
-1. In a distributed system, services often depend on each other. If Service A calls Service B directly and B is slow or down, A gets stuck or fails. A and B no longer need to be online at the same time.
+1. In a distributed system, services often depend on each other. If Service A calls Service B directly and B is slow or down, A gets stuck or fails. When using RabbitMQ, A and B no longer need to be online at the same time.
 
 - A publishes a message to RabbitMQ.
 
@@ -36,9 +36,9 @@ Debug host: http://localhost:15672
 - System feels faster for users, and workloads can be processed in parallel.
 
 
-3. RabbitMQ support Reliable Message Delivery - Messages can be lost if the network or consumer crashes.
+3. RabbitMQ support Reliable Message Delivery. In traditional architecture, messages can be lost if the network or consumer crashes.
 
-- Durable queues & persistent messages (survive broker restarts).
+- RabbitMQ provides durable queues & persistent messages (survive broker restarts).
 
 - Acknowledgments (ACK/NACK) — messages are only removed after successful processing.
 
