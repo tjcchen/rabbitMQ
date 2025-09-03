@@ -13,6 +13,10 @@ In the pub/sub pattern:
 - Each message is processed by only one consumer
 - This enables load balancing and parallel processing
 
+## Exchange Type: Fanout
+
+In RabbitMQ, a `fanout exchange` is a type of exchange that broadcasts all messages it receives to all queues bound to it, regardless of the routing key. It's a simple and powerful way to distribute the same message to multiple consumers. Think of it like a public announcement system: when a message is sent to the fanout exchange, every listener (queue) gets a copy.
+
 
 ## Pub/Sub Pattern Diagram
 
