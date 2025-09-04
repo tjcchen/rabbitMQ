@@ -15,6 +15,7 @@ channel.exchange_declare(exchange="pubsub", exchange_type=ExchangeType.fanout)
 # when the connection is closed, the queue will be deleted
 queue = channel.queue_declare(queue="", exclusive=True)
 
+# this is most important step
 # bind the queue to the exchange, `queue.method.queue` is the random name of the queue
 channel.queue_bind(exchange="pubsub", queue=queue.method.queue)
 
