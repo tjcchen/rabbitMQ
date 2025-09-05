@@ -22,10 +22,18 @@ A topic exchange is similar to a direct exchange but offers more flexible routin
 
 - `#` (hash) matches `zero or more` words.
 
-This allows for more complex routing patterns. For example, a queue bound with logs.critical.* would receive messages with routing keys like logs.critical.server or logs.critical.database, but not logs.critical. A queue bound with logs.# would receive all messages starting with logs., regardless of how many words follow. This is perfect for publish/subscribe systems where consumers are interested in a specific set of messages, like logs from a particular system or stock prices for certain regions.
+This allows for more complex routing patterns. For example, a queue bound with `logs.critical.*` would receive messages with routing keys like `logs.critical.server` or `logs.critical.database`, but not `logs.critical`. A queue bound with `logs.#` would receive all messages starting with `logs.`, regardless of how many words follow. This is perfect for publish/subscribe systems where consumers are interested in a specific set of messages, like logs from a particular system or stock prices for certain regions.
 
 
 ## Routing Diagram
 
 ![routing](../resources/routing.png)
 (Direct Exchange)
+
+
+![topic-exchange](../resources/topic-exchange.png)
+(Topic Exchange - Star)
+
+
+![topic-exchange2](../resources/topic-exchange2.png)
+(Topic Exchange - Hash)
