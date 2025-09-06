@@ -5,15 +5,26 @@ connection_parameters = pika.ConnectionParameters("localhost")
 connection = pika.BlockingConnection(connection_parameters)
 channel = connection.channel()
 
-channel.exchange_declare(exchange="routing", exchange_type=ExchangeType.direct)
+# exchange type: ExchangeType.direct, ExchangeType.topic
+channel.exchange_declare(exchange="mytopicexchange", exchange_type=ExchangeType.topic)
 
-message = "This message need to be routed"
+user_payments_message = "A european user paid for the product"
 
+# routing key: user.payments, user.europe.log, user.europe.payments, business.europe.order
 channel.basic_publish(
-    exchange="routing",
-    routing_key="both",
-    body=message
+    exchange="mytopicexchange",
+    routing_key="user.europe.payments",
+    body=user_payments_message
 )
 
-print(f"sent message: {message}")
+business_order_message = "A european business ordered goods"
+
+channel.basic_publish(
+    exchange="mytopicexchange",
+    routing_key="business.europe.order",
+    body=business_order_message
+)
+
+print(f"sent message: {user_payments_message}")
+print(f"sent message: {business_order_message}")
 connection.close()

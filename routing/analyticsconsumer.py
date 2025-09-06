@@ -8,15 +8,16 @@ connection_parameters = pika.ConnectionParameters("localhost")
 connection = pika.BlockingConnection(connection_parameters)
 channel = connection.channel()
 
-channel.exchange_declare(exchange="routing", exchange_type=ExchangeType.direct)
+# exchange type: ExchangeType.direct, ExchangeType.topic
+channel.exchange_declare(exchange="mytopicexchange", exchange_type=ExchangeType.topic)
 queue = channel.queue_declare(queue="", exclusive=True)
 
+# binding key: *.europe.* - this will match any routing key that contains .europe. in the middle
 channel.queue_bind(
-    exchange="routing",
+    exchange="mytopicexchange",
     queue=queue.method.queue,
-    routing_key="analyticsonly"
+    routing_key="*.europe.*"
 )
-channel.queue_bind(exchange="routing", queue=queue.method.queue, routing_key="both")
 
 channel.basic_consume(
     queue=queue.method.queue,
