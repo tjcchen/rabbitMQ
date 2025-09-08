@@ -38,6 +38,16 @@ The `Consistent Hashing Exchange` is a specialized RabbitMQ exchange type that u
 
 - `Binding Weights`: When binding a queue to a consistent hashing exchange, you specify a numeric `binding key` that acts as a weight. A higher weight adds the queue to the hash ring more times, increasing its chance of receiving messages. This allows for simple, proportional load balancing.
 
+## Enable Consistent Hashing Exchange
+
+```bash
+# cd to rabbitmq sbin directory
+cd /opt/homebrew/opt/rabbitmq/sbin
+
+# enable the plugin
+sudo ./rabbitmq-plugins enable rabbitmq_consistent_hash_exchange
+```
+
 
 ## Diagrams
 
