@@ -11,12 +11,13 @@ channel = connection.channel()
 channel.exchange_declare(exchange="headersexchange", exchange_type=ExchangeType.headers)
 channel.queue_declare(queue="letterbox")
 
-# delete the old queue if its cached: rabbitmqctl delete_queue letterbox
+# delete the old queue if its cached:
+# rabbitmqctl delete_queue letterbox
 
-# list all bindings for the exchange
+# list all bindings for the exchange:
 # rabbitmqctl list_bindings | grep headersexchange
 
-# list all queues and their arguments
+# list all queues and their arguments:
 # rabbitmqctl list_queues name arguments
 
 # x-match: any or all
