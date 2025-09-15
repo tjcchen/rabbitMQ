@@ -2,7 +2,7 @@
 
 ## Introduction
 
-RabbitMQ is a robust, open-source message broker (消息代理) that implements the Advanced Message Queuing Protocol (AMQP). It serves as an intermediary for messaging, allowing applications to communicate through message passing rather than direct connections.
+RabbitMQ is a robust, open-source message broker that implements the Advanced Message Queuing Protocol (AMQP). It serves as an intermediary for messaging, allowing applications to communicate through message passing rather than direct connections.
 
 ## What is RabbitMQ?
 
