@@ -10,6 +10,8 @@ In RabbitMQ, `publishing options` let a producer control how a message is routed
 - **appId**: ShopService
 - **userId**: Admin21
 - **DeliveryMode**: 1 (non-persistent, does not persist to disk), 2 (persist to disk before send to client)
+- **Mandatory**: true (return unroutable messages to the sender), false (drop unroutable messages)
+- **Expiration**: 10000 (message expiration in milliseconds)
 
 
 ## Code Example
