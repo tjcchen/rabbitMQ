@@ -49,3 +49,8 @@ print(" [x] Sent message")
 
 connection.close()
 ``` 
+
+## Performance (Fast and Reliability)
+
+![Publishing Options](../resources/publishing-options.png)
+(How to balance between Fast and Reliability)
