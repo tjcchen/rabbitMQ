@@ -33,7 +33,7 @@ channel.queue_declare(queue="mainexchangequeue")
 channel.queue_bind(
     queue="mainexchangequeue",
     exchange="mainexchange",
-    routing_key="test"
+    routing_key="test"   # routing key is important in this example
 )
 
 channel.basic_consume(
