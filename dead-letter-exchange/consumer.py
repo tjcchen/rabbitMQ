@@ -32,11 +32,13 @@ channel.queue_bind(
 channel.queue_declare(queue="dlxqueue")
 channel.queue_bind(queue="dlxqueue", exchange="dlx")
 
-channel.basic_consume(
-    queue="mainexchangequeue",
-    auto_ack=True,
-    on_message_callback=main_queue_on_message_received
-)
+# Normal messages go into mainexchangequeue,
+# If a consumer rejects a message or it expires, RabbitMQ moves it to dlxqueue via dlx
+# channel.basic_consume(
+#     queue="mainexchangequeue",
+#     auto_ack=True,
+#     on_message_callback=main_queue_on_message_received
+# )
 
 channel.basic_consume(
     queue="dlxqueue",
