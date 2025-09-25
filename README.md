@@ -47,7 +47,3 @@ This project demonstrates RabbitMQ in scenarios such as:
 - **Event-Driven Architecture**: Publishing and subscribing to system events
 - **Load Balancing**: Distributing workload across multiple workers
 - **System Integration**: Connecting different applications and services
-
-## Getting Started
-
-This repository contains examples and implementations showcasing RabbitMQ's capabilities in building robust, scalable messaging systems.
